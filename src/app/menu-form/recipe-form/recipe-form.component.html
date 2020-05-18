@@ -1,0 +1,69 @@
+<mat-card>
+  <mat-form-field>
+    <mat-label>Choisissez une recette:</mat-label>
+    <mat-select [(value)]="selectedRecipe" (selectionChange)="changeRecipe()">
+      <mat-option *ngFor="let recipe of recipes" [value]="recipe.value">
+        {{ recipe.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <ng-container *ngIf="selectedRecipe">
+    <mat-selection-list
+      (selectionChange)="toggleIngredient($event)"
+      #ingredientsSelectionList
+    >
+      <div mat-subheader>Ingrdients</div>
+
+      <div class="ingredient" *ngFor="let ingredient of ingredientsForm">
+        <mat-list-option
+          checkboxPosition="before"
+          [selected]="ingredient.isSelected"
+          [value]="ingredient.value"
+        >
+          {{ ingredient.name }}
+        </mat-list-option>
+
+        <div>
+          <mat-form-field>
+            <mat-label>Prix</mat-label>
+            <input
+              matInput
+              type="number"
+              [(ngModel)]="ingredient.price"
+              min="1"
+              (change)="validatePrice()"
+              required
+            />
+          </mat-form-field>
+
+          <p
+            class="error-message"
+            *ngIf="ingredient.price !== null && ingredient.price <= 0"
+          >
+            Le prix doit être supérieur à 0
+          </p>
+        </div>
+      </div>
+    </mat-selection-list>
+
+    <p
+      class="error-message"
+      *ngIf="!ingredientsSelectionList.selectedOptions.selected.length"
+    >
+      La recette doit contenir au moins un ingrédient
+    </p>
+
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="saveRecipe()"
+      [disabled]="
+        !ingredientsSelectionList.selectedOptions.selected.length ||
+        hasInvalidPrice
+      "
+    >
+      Ajouter
+    </button>
+  </ng-container>
+</mat-card>

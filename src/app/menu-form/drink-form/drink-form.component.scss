@@ -1,0 +1,26 @@
+mat-card {
+  height: 100%;
+  overflow-y: scroll;
+  box-sizing: border-box;
+
+  mat-list {
+    margin: 2em 0;
+
+    mat-list-item {
+      margin: 1.5em 0;
+
+      .drink {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+
+  .buttons {
+    button {
+      margin: 0 1em;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+<mat-card>
+  <mat-list>
+    <div mat-subheader>Boissons</div>
+    <mat-list-item *ngFor="let drink of drinksForm.controls; let i = index">
+      <div class="drink" [formGroup]="drink">
+        <mat-form-field>
+          <mat-label>Nom</mat-label>
+          <input matInput type="string" formControlName="name" />
+          <mat-error>Ce champ est requis</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Quantité</mat-label>
+          <input matInput type="number" formControlName="count" min="1" />
+          <mat-error
+            *ngIf="
+              drink.get('count').errors && drink.get('count').errors.required
+            "
+            >Ce champ est requis</mat-error
+          >
+          <mat-error
+            *ngIf="drink.get('count').errors && drink.get('count').errors.min"
+            >Minimum: 1</mat-error
+          >
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Prix</mat-label>
+          <input matInput type="number" formControlName="price" min="1" />
+          <mat-error
+            *ngIf="
+              drink.get('count').errors && drink.get('count').errors.required
+            "
+          >
+            Ce champ est requis
+          </mat-error>
+          <mat-error
+            *ngIf="drink.get('count').errors && drink.get('count').errors.min"
+          >
+            Minimum: 1
+          </mat-error>
+        </mat-form-field>
+
+        <div>
+          <button
+            mat-mini-fab
+            color="warn"
+            (click)="deleteDrink(i)"
+            *ngIf="drinksForm.controls.length > 1"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-list-item>
+  </mat-list>
+
+  <div class="buttons">
+    <button mat-raised-button color="info" (click)="addDrink()">Ajouter</button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="saveDrinks()"
+      [disabled]="drinksForm.invalid"
+    >
+      Valider
+    </button>
+  </div>
+</mat-card>

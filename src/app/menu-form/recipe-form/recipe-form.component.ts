@@ -4,12 +4,8 @@ import {
   MatSelectionList
 } from '@angular/material/list';
 
-import {
-  Ingredients,
-  Recipe,
-  RestaurantService,
-  OrderedRecipe
-} from '../../restaurant.service';
+import { Ingredients, Recipe, OrderedRecipe } from 'src/app/types';
+import { RestaurantService } from '../../restaurant.service';
 
 @Component({
   selector: 'app-recipe-form',

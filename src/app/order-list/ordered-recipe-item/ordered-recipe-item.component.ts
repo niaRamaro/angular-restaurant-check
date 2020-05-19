@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { OrderedRecipe } from 'src/app/restaurant.service';
+import { OrderedRecipe } from 'src/app/types';
 
 @Component({
   selector: 'app-ordered-recipe-item',

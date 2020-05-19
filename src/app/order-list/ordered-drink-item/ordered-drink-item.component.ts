@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Drink } from 'src/app/restaurant.service';
+
+import { Drink } from 'src/app/types';
 
 @Component({
   selector: 'app-ordered-drink-item',

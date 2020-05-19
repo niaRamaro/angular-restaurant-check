@@ -1,34 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
 
+import { Drink, OrderedRecipe, Ingredients, Recipe } from './types';
 import { INGREDIENTS } from './mocks/ingredients';
 import { RECIPES } from './mocks/recipes';
-
-export interface Drink {
-  name: string;
-  count: number;
-  price: number;
-}
-
-export interface Ingredients {
-  [key: string]: {
-    name: string;
-    value: string;
-  }[];
-}
-
-export interface OrderedRecipe {
-  recipe: Recipe;
-  ingredients: ({
-    price: number;
-    isSelected: boolean;
-  } & Ingredients)[];
-}
-
-export interface Recipe {
-  name: string;
-  value: string;
-}
 
 @Injectable({
   providedIn: 'root'

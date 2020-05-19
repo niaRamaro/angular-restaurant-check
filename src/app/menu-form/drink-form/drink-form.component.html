@@ -56,14 +56,16 @@
   </mat-list>
 
   <div class="buttons">
-    <button mat-raised-button color="info" (click)="addDrink()">Ajouter</button>
+    <button mat-mini-fab color="info" (click)="addDrink()">
+      <mat-icon>add</mat-icon>
+    </button>
     <button
       mat-raised-button
       color="primary"
       (click)="saveDrinks()"
       [disabled]="drinksForm.invalid"
     >
-      Valider
+      Commander
     </button>
   </div>
 </mat-card>

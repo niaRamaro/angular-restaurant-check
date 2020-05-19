@@ -1,4 +1,6 @@
 <mat-card>
+  <div mat-subheader>Recette</div>
+
   <mat-form-field>
     <mat-label>Choisissez une recette:</mat-label>
     <mat-select [(value)]="selectedRecipe" (selectionChange)="changeRecipe()">
@@ -63,7 +65,7 @@
         hasInvalidPrice
       "
     >
-      Ajouter
+      Commander
     </button>
   </ng-container>
 </mat-card>

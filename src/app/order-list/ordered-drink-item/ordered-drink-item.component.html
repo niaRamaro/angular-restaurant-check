@@ -1,5 +1,5 @@
 <div class="drink-row">
   <div class="name">{{ drink.name }}</div>
-  <div>{{ drink.count }} x {{ drink.price }}</div>
-  <div class="total">{{ total }}</div>
+  <div>{{ drink.count }} x {{ drink.price | currency: 'MGA' }}</div>
+  <div class="total">{{ total | currency: 'MGA':'Ar ' }}</div>
 </div>

@@ -25,25 +25,27 @@
     <mat-list-item>
       <div class="total-row">
         <div>Total recette</div>
-        <div class="price">{{ total.recipes }}</div>
+        <div class="price">{{ total.recipes | currency: 'MGA':'Ar ' }}</div>
       </div>
     </mat-list-item>
     <mat-list-item>
       <div class="total-row">
         <div>Total Boisson</div>
-        <div class="price">{{ total.drinks }}</div>
+        <div class="price">{{ total.drinks | currency: 'MGA':'Ar ' }}</div>
       </div>
     </mat-list-item>
     <mat-list-item>
       <div class="total-row">
         <div>Total Commande</div>
-        <div class="price">{{ total.order }}</div>
+        <div class="price">{{ total.order | currency: 'MGA':'Ar ' }}</div>
       </div>
     </mat-list-item>
     <mat-list-item *ngIf="total.discountedOrder">
       <div class="total-row">
         <div>Total Commande apres reduction boisson (20%)</div>
-        <div class="price">{{ total.discountedOrder }}</div>
+        <div class="price">
+          {{ total.discountedOrder | currency: 'MGA':'Ar ' }}
+        </div>
       </div>
     </mat-list-item>
   </mat-list>

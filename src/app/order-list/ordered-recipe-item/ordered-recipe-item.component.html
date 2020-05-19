@@ -10,10 +10,10 @@
           <span
             class="default-amount striked"
             *ngIf="defaultAmount !== orderAmount"
-            >{{ defaultAmount }}</span
+            >{{ defaultAmount | currency: 'MGA':'Ar ' }}</span
           >
           <span class="order-amount">
-            {{ orderAmount }}
+            {{ orderAmount | currency: 'MGA':'Ar ' }}
           </span>
         </span>
       </mat-panel-title>
@@ -35,7 +35,7 @@
         </mat-chip-list>
       </div>
       <div class="price" [class.striked]="!ingredient.isSelected">
-        {{ ingredient.price }}
+        {{ ingredient.price | currency: 'MGA':'Ar ' }}
       </div>
     </div>
   </mat-expansion-panel>

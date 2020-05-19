@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
 
-import { Drink } from 'src/app/types';
-import { RestaurantService } from 'src/app/restaurant.service';
+import { Drink } from '../../types';
+import { RestaurantService } from '../../restaurant.service';
 
 @Component({
   selector: 'app-drink-form',

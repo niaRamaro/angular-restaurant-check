@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Drink } from 'src/app/types';
+import { Drink } from '../../types';
 
 @Component({
   selector: 'app-ordered-drink-item',

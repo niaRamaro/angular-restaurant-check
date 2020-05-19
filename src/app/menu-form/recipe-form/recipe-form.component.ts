@@ -4,7 +4,7 @@ import {
   MatSelectionList
 } from '@angular/material/list';
 
-import { Ingredients, Recipe, OrderedRecipe } from 'src/app/types';
+import { Ingredients, Recipe, OrderedRecipe } from '../../types';
 import { RestaurantService } from '../../restaurant.service';
 
 @Component({

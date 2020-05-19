@@ -27,6 +27,7 @@ export class OrderedRecipeItemComponent implements OnInit {
       .filter(({ isSelected }) => isSelected)
       .reduce((amount, { price }) => {
         amount += price;
+
         return amount;
       }, 0);
   }

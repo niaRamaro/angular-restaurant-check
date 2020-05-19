@@ -20,4 +20,31 @@
       </mat-list-item>
     </div>
   </mat-list>
+
+  <mat-list class="total" *ngIf="order.recipes.length || order.drinks.length">
+    <mat-list-item>
+      <div class="total-row">
+        <div>Total recette</div>
+        <div class="price">{{ total.recipes }}</div>
+      </div>
+    </mat-list-item>
+    <mat-list-item>
+      <div class="total-row">
+        <div>Total Boisson</div>
+        <div class="price">{{ total.drinks }}</div>
+      </div>
+    </mat-list-item>
+    <mat-list-item>
+      <div class="total-row">
+        <div>Total Commande</div>
+        <div class="price">{{ total.order }}</div>
+      </div>
+    </mat-list-item>
+    <mat-list-item *ngIf="total.discountedOrder">
+      <div class="total-row">
+        <div>Total Commande apres reduction boisson (20%)</div>
+        <div class="price">{{ total.discountedOrder }}</div>
+      </div>
+    </mat-list-item>
+  </mat-list>
 </mat-card>

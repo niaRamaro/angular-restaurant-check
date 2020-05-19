@@ -1,0 +1,35 @@
+mat-panel-title {
+  display: flex;
+  justify-content: space-between;
+
+  .amounts {
+    text-align: right;
+
+    .default-amount {
+      margin-right: 1em;
+    }
+
+    .order-amount {
+      font-weight: bold;
+    }
+  }
+}
+
+.striked {
+  color: grey;
+  text-decoration: line-through;
+}
+
+.ingredient-row {
+  display: flex;
+  margin: 0.2em;
+  margin-left: 2em;
+
+  div {
+    flex: 1;
+
+    &.price {
+      text-align: right;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<mat-card>
+  <h3>Commande</h3>
+  <mat-divider></mat-divider>
+
+  <div class="order-section" *ngIf="order.recipes.length">
+    <div mat-subheader>Recettes</div>
+
+    <app-ordered-recipe-item
+      *ngFor="let orderedRecipe of order.recipes"
+      [orderedRecipe]="orderedRecipe"
+    ></app-ordered-recipe-item>
+  </div>
+
+  <mat-list>
+    <div class="order-section" *ngIf="order.drinks.length">
+      <div mat-subheader>Boissons</div>
+
+      <mat-list-item *ngFor="let drink of order.drinks">
+        <app-ordered-drink-item [drink]="drink"></app-ordered-drink-item>
+      </mat-list-item>
+    </div>
+  </mat-list>
+</mat-card>

@@ -7,7 +7,8 @@ import {
 import {
   Ingredients,
   Recipe,
-  RestaurantService
+  RestaurantService,
+  OrderedRecipe
 } from '../../restaurant.service';
 
 @Component({
@@ -46,7 +47,12 @@ export class RecipeFormComponent implements OnInit {
   }
 
   saveRecipe() {
-    console.log('save recipe', this.ingredientsForm);
+    const newRecipe: OrderedRecipe = {
+      recipe: this.recipes.find(({ value }) => value === this.selectedRecipe),
+      ingredients: this.ingredientsForm
+    };
+    this.restaurantService.orderedRecipes$.next(newRecipe);
+    this.resetForm();
   }
 
   toggleIngredient({ option }: MatSelectionListChange) {
@@ -59,5 +65,10 @@ export class RecipeFormComponent implements OnInit {
 
   validatePrice() {
     this.hasInvalidPrice = this.ingredientsForm.some(({ price }) => price <= 0);
+  }
+
+  private resetForm() {
+    this.selectedRecipe = '';
+    this.ingredientsForm = [];
   }
 }

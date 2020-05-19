@@ -1,0 +1,42 @@
+<mat-accordion>
+  <mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span>
+          {{ orderedRecipe.recipe.name }}
+        </span>
+
+        <span class="amounts">
+          <span
+            class="default-amount striked"
+            *ngIf="defaultAmount !== orderAmount"
+            >{{ defaultAmount }}</span
+          >
+          <span class="order-amount">
+            {{ orderAmount }}
+          </span>
+        </span>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div
+      class="ingredient-row"
+      *ngFor="let ingredient of orderedRecipe.ingredients"
+    >
+      <div>{{ ingredient.name }}</div>
+      <div>
+        <mat-chip-list>
+          <mat-chip
+            [color]="ingredient.isSelected ? 'primary' : 'warn'"
+            selected
+          >
+            {{ ingredient.isSelected ? 'Inclus' : 'Non inclus' }}
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+      <div class="price" [class.striked]="!ingredient.isSelected">
+        {{ ingredient.price }}
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

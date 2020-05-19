@@ -1,0 +1,16 @@
+.drink-row {
+  display: flex;
+
+  div {
+    width: 30%;
+
+    &.name {
+      width: 40%;
+    }
+
+    &.total {
+      font-weight: bold;
+      text-align: right;
+    }
+  }
+}

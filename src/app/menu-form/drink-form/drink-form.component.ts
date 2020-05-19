@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
 
+import { RestaurantService, Drink } from 'src/app/restaurant.service';
+
 @Component({
   selector: 'app-drink-form',
   templateUrl: './drink-form.component.html',
@@ -14,7 +16,10 @@ export class DrinkFormComponent implements OnInit {
   };
   drinksForm: FormArray;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private restaurantService: RestaurantService
+  ) {}
 
   ngOnInit(): void {
     this.drinksForm = this.fb.array([this.fb.group(this.defaultDrink)]);
@@ -29,6 +34,8 @@ export class DrinkFormComponent implements OnInit {
   }
 
   saveDrinks() {
-    console.log('save drinks', this.drinksForm.value);
+    const newDrinks: Drink[] = this.drinksForm.value;
+    this.restaurantService.orderedDrinks$.next(newDrinks);
+    this.drinksForm = this.fb.array([this.fb.group(this.defaultDrink)]);
   }
 }

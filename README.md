@@ -1,27 +1,16 @@
-# AngularRestaurantCheck
+This small app consists of taking :
+- recipe orders
+- drink orders
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+### Recipe
+We may choose between 3 recipes. Each recipe has its own ingredients. We may include/exclude ingredients from the recipe but at least one ingredient must be included.
 
-## Development server
+### Drink
+Drinks are made of a form that has :
+- a name
+- a number of order
+- a price
+For the sake of the demo, the name and the price can be edited.
+If the total amount of drinks exceeds 100000, a discount of 20% is applied to the whole order.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The goal is to have those choices on the left and display the computed values of the order on the right.
